@@ -1,6 +1,6 @@
 {
   "name": "react-core-template",
-  "version": "0.1.2",
+  "version": "0.1.0",
   "private": true,
   "description": "A boilerplate for modern React apps with essential configuration.",
   "main": "index.js",
@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "Walter J. Gonzalez",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": { 
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

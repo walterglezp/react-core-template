@@ -1,0 +1,1 @@
+type AppLanguage = 'es' | 'en'
