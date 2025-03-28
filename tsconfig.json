@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "target": "ES5",
+      "module": "ESNext",
+      "lib": ["DOM", "ESNext"],
+      "jsx": "react",
+      "strict": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      // Base directory for resolving non-relative module names
+      "baseUrl": ".",
+     // Path mappings for module imports
+      "paths": {
+        "@components/*": ["src/components/*"],
+        "@pages/*": ["src/pages/*"],
+        "@app/*": ["src/*"],
+        "*": ["types/*"]
+      }
+    },
+    "include": ["src"],
+    // Specifies type definitions to be included in the compilation
+    "typeRoots": [
+      "src/types"
+    ]
+  }
+  

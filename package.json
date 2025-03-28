@@ -1,0 +1,54 @@
+{
+  "name": "react-core-template",
+  "version": "0.1.2",
+  "private": true,
+  "description": "A boilerplate for modern React apps with essential configuration.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walterglezp/my-react-app-template.git"
+  },
+  "keywords": [],
+  "author": "Walter J. Gonzalez",
+  "license": "ISC",
+  "dependencies": { 
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.4.0",
+    "url": "^0.11.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "compression-webpack-plugin": "^11.1.0",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
+    "html-webpack-plugin": "^5.6.3",
+    "html-webpack-tags-plugin": "^3.0.2",
+    "prettier": "^3.5.3",
+    "sass": "^1.86.0",
+    "sass-loader": "^16.0.5",
+    "source-map-loader": "^5.0.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2",
+    "webpack": "^5.98.0",
+    "webpack-bundle-analyzer": "^4.10.2",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/walterglezp/react-core-template/issues"
+  },
+  "homepage": "https://github.com/walterglezp/react-core-template"
+}
