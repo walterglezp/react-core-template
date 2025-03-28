@@ -1,20 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin") 
-const webpack = require('webpack');
+const HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
- 
+
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    filename: '[name].[contenthash].js', // cache-busting for better performance
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     clean: {
-      keep: "config.js",
+      keep: "config.js", // keeps it on rebuilds
     },
   },
   resolve: {
@@ -26,8 +24,8 @@ module.exports = {
       '@pages': path.resolve(__dirname, 'src/pages/'),
     },
     fallback: {
-      "url": require.resolve("url/")
-    }
+      url: require.resolve("url/"),
+    },
   },
   module: {
     rules: [
@@ -38,7 +36,7 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               compilerOptions: {
-                sourceMap: true, // Enable source maps for TypeScript
+                sourceMap: true,
               },
             },
           },
@@ -56,15 +54,11 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
+            options: { sourceMap: true },
           },
           {
             loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
+            options: { sourceMap: true },
           },
         ],
       },
@@ -73,14 +67,14 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
-      minSize: 30 * 1024, // Minimum size, in bytes, for a chunk to be generated
-      maxSize: 244 * 1024, // Target maximum chunk size to split large modules
+      minSize: 30 * 1024,
+      maxSize: 244 * 1024,
     },
   },
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
-    maxAssetSize: 512000
+    maxAssetSize: 512000,
   },
   devtool: 'source-map',
   devServer: {
@@ -96,21 +90,20 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      inject: 'body', // Injects scripts before the closing </body> tag
+      inject: 'body',
     }),
     new HtmlWebpackTagsPlugin({
-      files: ["index.html"],
-      tags: ["config.js"],
+      files: ['index.html'],
+      tags: ['config.js'], // injects your runtime config
       append: false,
     }),
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, 'src/assets'), to: 'assets' },
+        { from: path.resolve(__dirname, 'config.js'), to: '.' },
       ],
     }),
-    new CompressionWebpackPlugin({
-      algorithm: 'gzip',
-    }),
+    new CompressionWebpackPlugin({ algorithm: 'gzip' }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,

@@ -2,6 +2,8 @@
 
 A boilerplate for modern React applications built with TypeScript, Webpack 5, and essential tools for development and production.
 
+---
+
 ## 🚀 Features
 
 - ⚛️ React 19 + React Router v7
@@ -47,35 +49,86 @@ A boilerplate for modern React applications built with TypeScript, Webpack 5, an
 
 ## 📁 Project Structure
 
-react-core-template/ ├── dist/ # Compiled production build ├── src/ │ ├── assets/ # Static assets │ ├── components/ # Reusable components │ ├── pages/ # Route-based views │ ├── index.tsx # App entry point │ └── index.html # HTML template ├── webpack.config.js # Webpack configuration ├── tsconfig.json # TypeScript configuration ├── .eslintrc # ESLint rules ├── .prettierrc # Prettier formatting rules └── package.json # Project metadata and scripts
+react-core-template/ ├── dist/ # Compiled production build ├── src/ │ ├── assets/ # Static assets │ ├── components/ # Reusable components │ ├── pages/ # Route-based views │ ├── index.tsx # App entry point │ └── index.html # HTML template ├── .docker/ # Custom Docker entrypoint │ └── entrypoint.sh ├── .env.production # Environment variables for production ├── .env.staging # Environment variables for staging ├── config.js # Generated at build time ├── scripts/ │ └── generate-config.js # Script to generate config.js from .env ├── webpack.config.js # Webpack configuration ├── tsconfig.json # TypeScript configuration ├── Dockerfile # Multi-stage Docker build ├── docker-compose.yml # Docker Compose config ├── .eslintrc # ESLint rules ├── .prettierrc # Prettier formatting rules └── package.json # Project metadata and scripts
 
+---
+
+## 🧑‍💻 Getting Started (Local Development)
+
+1. **Set up your `.env.development`** file:
+
+```env
+REACT_API_GATEWAY_URL=http://localhost:5079
+REACT_APP_GOOGLE_MAPS_API_KEY=your-dev-key
+REACT_AUTH_CLIENT_ID=your-dev-client-id
+REACT_AUTH_DOMAIN=your-dev-auth-domain
+
+2. Install dependencies:
+npm install
+
+3. Run the app (auto-generates config.js):
+npm start
+
+Your app will be available at http://localhost:3000
+---
+
+
+## 📦 Docker Support
+
+This project includes full Docker support for containerized builds and static hosting with NGINX.
+
+### 🐳 Build & Run with Docker Compose
+
+# Set your NPM token if using private packages
+export NODE_AUTH_TOKEN=your-npm-token
+
+# Build for a specific environment
+docker-compose build --build-arg APP_ENV=staging
+
+# Start the container
+docker-compose up
+
+
+### 🐳 Environment Options
+
+# Change the APP_ENV build arg in docker-compose.yml to:
+- production
+- staging
+
+The appropriate .env.[env] file will be used to generate config.js.
 ---
 
 ## 🛠️ Scripts
 
-| Command          | Description                        |
-| ---------------- | ---------------------------------- |
-| `npm start`      | Run dev server at `localhost:3000` |
-| `npm run build`  | Create production build in `/dist` |
-| `npm run lint`   | Run ESLint on all files            |
-| `npm run format` | Format files using Prettier        |
+| Command          | Description                                                    |
+| ---------------- | -------------------------------------------------------------- |
+| `npm start`      | Run dev server at `localhost:3000`  (auto-generates config.js) |
+| `npm run build`  | Create production build in `/dist`                             |
+| `npm run lint`   | Run ESLint on all files                                        |
+| `npm run format` | Format files using Prettier                                    |
+| `npm run generate:config` | Generate config.js (defaults to production)           |
+| `npm run generate:config dev` | Generate config.js for development                |
 
 ---
 
 ## 🧪 Optimization Notes
 
-- **Content hash in filenames** for cache busting
-- **SplitChunks** configured for performance
-- **Terser** via Webpack default minimizes JS
-- **Gzip compression** for smaller bundles
-- **BundleAnalyzerPlugin** helps analyze and reduce size
+- ✅ Cache-busted filenames using [contenthash]
+
+- ✅ JS splitting via Webpack splitChunks
+
+- ✅ Production bundles gzip-compressed
+
+- ✅ Runtime environment config via config.js
+
+- ✅ Optional bundle analysis via webpack-bundle-analyzer
 
 ---
 
 ## 🌐 Live URL & Issues
 
-- Homepage: [https://github.com/walterglezp/react-core-template](https://github.com/walterglezp/react-core-template)
-- Issues: [https://github.com/walterglezp/react-core-template/issues](https://github.com/walterglezp/react-core-template/issues)
+- 🏠 Homepage: [https://github.com/walterglezp/react-core-template](https://github.com/walterglezp/react-core-template)
+- 🐛 Issues: [https://github.com/walterglezp/react-core-template/issues](https://github.com/walterglezp/react-core-template/issues)
 
 ---
 
@@ -86,3 +139,4 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Created with ❤️ by [Walter J. Gonzalez](https://github.com/walterglezp)
+```
