@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_REGISTRY: 'https://registry.npmjs.org' # NPM registry URL
+        NODE_SCOPE: '@your-scope' # NPM scope (for private packages)
+        NODE_AUTH_TOKEN: '${NODE_AUTH_TOKEN}' # Token from your local env
+        APP_ENV: 'staging' # Change to 'production' as needed
+    ports:
+      - '3000:80' # Host port:container port
+    environment:
+      BUILD_VERSION: 'local-dev' # Visible in container logs or app
+    container_name: react-core-template
