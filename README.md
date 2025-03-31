@@ -140,6 +140,19 @@ Example:
 
 ---
 
+## ⚡ Lazy Loading with Error Boundaries
+
+This template supports lazy-loaded routes to improve performance by splitting the app into smaller chunks. It also includes error boundaries to gracefully handle loading or runtime errors in these dynamic imports.
+
+🔹 Features:
+
+- Pages are loaded using React.lazy + Suspense
+- Errors in route components are caught by a global <ErrorBoundary>
+- Fallback UI can be customized per use case
+- Automatically splits code using Webpack for optimized bundles
+
+---
+
 ## 🧪 Optimization Notes
 
 - ✅ Cache-busted filenames using [contenthash]
