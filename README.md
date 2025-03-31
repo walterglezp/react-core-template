@@ -173,6 +173,24 @@ src/
 │ └── mutate/
 │ └── settings.ts # Mutation logic using immer
 
+🔧 Example Usage
+
+```
+import { AppContext } from '@app/state';
+import { MutateSettings } from '@app/state/mutate/settings';
+
+const { globalState, updateGlobalState } = React.useContext(AppContext);
+const mutateSettings = new MutateSettings(globalState, updateGlobalState);
+
+mutateSettings.setLanguage('es');
+
+```
+
+Or, directly using partial update (no immer):
+
+```
+updateGlobalState({ setting: { language: 'en' } });
+```
 ---
 
 ## 🧪 Optimization Notes
