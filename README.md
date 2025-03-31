@@ -153,6 +153,46 @@ This template supports lazy-loaded routes to improve performance by splitting th
 
 ---
 
+## 🧠 Global State Management with React Context
+
+This project includes a scalable global state management setup using the React Context API, enhanced with a typed mutation layer and support for partial updates.
+
+🔹 Features:
+
+- 📦 Centralized global state (AppState) shared across the app
+- 🧩 AppProvider wraps the app and exposes context via AppContext
+- ⚙️ State is typed, initialized, and can be updated through a provided function
+- 🧠 Optional mutation helpers (MutateSettings) use immer for clean updates
+- ✅ Supports partial updates via updateGlobalState({ ... })
+
+📁 State Structure
+src/
+├── state/
+│ ├── index.tsx # AppProvider and AppContext definition
+│ ├── state.ts # AppState type and initial state
+│ └── mutate/
+│ └── settings.ts # Mutation logic using immer
+
+🔧 Example Usage
+
+```
+import { AppContext } from '@app/state';
+import { MutateSettings } from '@app/state/mutate/settings';
+
+const { globalState, updateGlobalState } = React.useContext(AppContext);
+const mutateSettings = new MutateSettings(globalState, updateGlobalState);
+
+mutateSettings.setLanguage('es');
+
+```
+
+Or, directly using partial update (no immer):
+
+```
+updateGlobalState({ setting: { language: 'en' } });
+```
+---
+
 ## 🧪 Optimization Notes
 
 - ✅ Cache-busted filenames using [contenthash]
