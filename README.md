@@ -62,16 +62,15 @@ REACT_API_GATEWAY_URL=http://localhost:5079
 REACT_APP_GOOGLE_MAPS_API_KEY=your-dev-key
 REACT_AUTH_CLIENT_ID=your-dev-client-id
 REACT_AUTH_DOMAIN=your-dev-auth-domain
+```
 
 2. Install dependencies:
-npm install
+   npm install
 
 3. Run the app (auto-generates config.js):
-npm start
+   npm start
 
-Your app will be available at http://localhost:3000
----
-
+## Your app will be available at http://localhost:3000
 
 ## 📦 Docker Support
 
@@ -80,34 +79,64 @@ This project includes full Docker support for containerized builds and static ho
 ### 🐳 Build & Run with Docker Compose
 
 # Set your NPM token if using private packages
+
 export NODE_AUTH_TOKEN=your-npm-token
 
 # Build for a specific environment
+
 docker-compose build --build-arg APP_ENV=staging
 
 # Start the container
-docker-compose up
 
+docker-compose up
 
 ### 🐳 Environment Options
 
 # Change the APP_ENV build arg in docker-compose.yml to:
+
 - production
 - staging
 
-The appropriate .env.[env] file will be used to generate config.js.
----
+## The appropriate .env.[env] file will be used to generate config.js.
 
 ## 🛠️ Scripts
 
-| Command          | Description                                                    |
-| ---------------- | -------------------------------------------------------------- |
-| `npm start`      | Run dev server at `localhost:3000`  (auto-generates config.js) |
-| `npm run build`  | Create production build in `/dist`                             |
-| `npm run lint`   | Run ESLint on all files                                        |
-| `npm run format` | Format files using Prettier                                    |
-| `npm run generate:config` | Generate config.js (defaults to production)           |
-| `npm run generate:config dev` | Generate config.js for development                |
+| Command                       | Description                                                   |
+| ----------------------------- | ------------------------------------------------------------- |
+| `npm start`                   | Run dev server at `localhost:3000` (auto-generates config.js) |
+| `npm run build`               | Create production build in `/dist`                            |
+| `npm run lint`                | Run ESLint on all files                                       |
+| `npm run format`              | Format files using Prettier                                   |
+| `npm run generate:config`     | Generate config.js (defaults to production)                   |
+| `npm run generate:config dev` | Generate config.js for development                            |
+
+---
+
+## 🌐 Routing Support
+
+🔹 Features:
+
+- Configured with <BrowserRouter> and nested <Routes>
+- Centralized route paths via the ROUTES enum in @app/router/routes
+- Includes a basic NotFoundPage for unknown routes
+- Scalable structure for adding authenticated or lazy-loaded routes in the future
+
+src/
+├── app/
+│ └── router/
+│ ├── app-router.tsx # Defines all app routes
+│ └── routes.ts # Centralized route enums
+├── pages/
+│ └── not-found/ # 404 Not Found Page
+
+Example:
+
+```
+
+<Route path={ROUTES.home} element={<HomePage />} />
+<Route path="\*" element={<NotFoundPage />} />
+
+```
 
 ---
 
@@ -139,4 +168,3 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Created with ❤️ by [Walter J. Gonzalez](https://github.com/walterglezp)
-```
