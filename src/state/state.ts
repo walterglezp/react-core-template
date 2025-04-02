@@ -1,3 +1,5 @@
+import { defaultLoginFormState, LoginFormProps, defaultSignupFormState, SignupFormProps } from '@app/state/mutate/forms'
+
 const fallbackLanguage: AppLanguage = ['en', 'es'].includes(window.navigator.language.slice(0, 2))
   ? (window.navigator.language.slice(0, 2) as AppLanguage)
   : 'en'
@@ -26,6 +28,10 @@ export type AppStateProps = {
     language: AppLanguage
   }
   account: AppUser
+  forms: {
+    login: LoginFormProps
+    signup: SignupFormProps
+  }
 }
 
 export const initialAppState: AppStateProps = {
@@ -34,5 +40,9 @@ export const initialAppState: AppStateProps = {
   },
   account: {
     isAuthenticated: false,
+  },
+  forms: {
+    login: defaultLoginFormState,
+    signup: defaultSignupFormState,
   },
 }
