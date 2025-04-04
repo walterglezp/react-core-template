@@ -1,3 +1,70 @@
 #home-page {
-  font-family: 'Courier New', Courier, monospace;
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  h1 {
+    color: #0366d6;
+  }
+  nav {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 5px;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #0366d6;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  pre {
+    background: #f6f8fa;
+    padding: 16px;
+    border-radius: 6px;
+    overflow: auto;
+  }
+  code {
+    font-family:
+      SFMono-Regular,
+      Consolas,
+      Liberation Mono,
+      Menlo,
+      monospace;
+    background: rgba(27, 31, 35, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+  .github-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 16px;
+    background: #0366d6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .github-link:hover {
+    background: #0356b6;
+  }
+
+  #multistep-form {
+    border: solid 1px #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background: #f9f9f9;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 }

@@ -7,9 +7,7 @@ interface InputProps {
   tabIndex?: number
   placeholder?: string
   className?: string
-  append?: string | React.ReactNode
   type?: InputFieldProps
-  variant?: 'sm' | 'md' | 'lg'
   isRequired?: boolean
   min?: number
   max?: number
@@ -24,9 +22,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   tabIndex,
   className,
-  append,
   type = 'text',
-  variant = 'sm',
   isRequired = false,
   disabled = false,
   field,
@@ -39,7 +35,7 @@ const Input: React.FC<InputProps> = ({
         {label && (
           <span>
             {label}
-            {isRequired && <span className="asterisk">&nbsp;*</span>}&nbsp;
+            {isRequired && <span>&nbsp;*</span>}&nbsp;
           </span>
         )}
         <input
@@ -47,7 +43,6 @@ const Input: React.FC<InputProps> = ({
           tabIndex={tabIndex}
           name={field.name}
           placeholder={placeholder}
-          className={`form-control`}
           type={type}
           value={(field.value as string) ?? ''}
           onChange={(e) => validateOnChange({ ...field, value: e.target.value }, onChange)}
@@ -56,7 +51,7 @@ const Input: React.FC<InputProps> = ({
           style={field.value !== '' ? { borderRight: 'none' } : undefined}
         />
       </div>
-      {field.error && field.error}
+      {field.error && <span style={{ color: 'red' }}>{field.error}</span>}
     </>
   )
 }

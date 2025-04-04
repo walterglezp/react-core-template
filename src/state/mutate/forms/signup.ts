@@ -42,6 +42,6 @@ export const defaultSignupFormState: SignupFormProps = {
       validate: {},
     },
   },
-  currentSection: 2,
+  currentSection: 1,
   errorMsg: '',
 }
