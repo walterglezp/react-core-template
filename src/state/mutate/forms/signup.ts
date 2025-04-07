@@ -3,6 +3,7 @@ export interface SignupFormProps extends FormProps {
     userName: FormFieldProps
     password: FormFieldProps
     confirmPassword: FormFieldProps
+    email: FormFieldProps
     acceptTerms: FormFieldProps
   }
 }
@@ -32,6 +33,14 @@ export const defaultSignupFormState: SignupFormProps = {
       error: '',
       section: 1,
       validate: { required: true, maxStrLength: 15 },
+    },
+    email: {
+      formName: 'signup',
+      name: 'email',
+      value: '',
+      error: '',
+      section: 1,
+      validate: { required: true, email: true },
     },
     acceptTerms: {
       formName: 'signup',
