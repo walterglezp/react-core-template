@@ -1,7 +1,6 @@
 type FormFieldValueProps = string | number | boolean | File | File[] | null | Array<string>
 
 type ValidateProps = {
-  noValidate?: boolean
   required?: boolean
   minStrLength?: number
   maxStrLength?: number
@@ -9,9 +8,6 @@ type ValidateProps = {
   minImages?: number
   maxImages?: number
   isImagesList?: boolean
-  fileSize?: number
-  dateTimePicker?: boolean
-  dateTimeRangePicker?: boolean
   email?: boolean
   phone?: boolean
   integer?: boolean
