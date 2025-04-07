@@ -16,7 +16,7 @@ const HomePage: FC = () => {
   const mutateForm = new MutateForm(globalState, updateGlobalState)
   const { language } = globalState.setting
   const { currentSection, errorMsg } = globalState.forms.signup
-  const { password, userName, acceptTerms, confirmPassword } = globalState.forms.signup.fields
+  const { password, userName, acceptTerms, confirmPassword, email } = globalState.forms.signup.fields
 
   const changeLanguage = (): void => {
     if (language === 'es') {
@@ -283,13 +283,8 @@ const HomePage: FC = () => {
                     isRequired
                     placeholder="password"
                   />
-                  <Input
-                    type="password"
-                    field={confirmPassword}
-                    onChange={handleFormChange}
-                    isRequired
-                    placeholder="confirm password"
-                  />
+                  <Input field={email} onChange={handleFormChange} isRequired placeholder="email" />
+                  <br />
                   <button type="button" onClick={() => mutateForm.goToFormSection('signup', currentSection + 1)}>
                     Next Section
                   </button>
