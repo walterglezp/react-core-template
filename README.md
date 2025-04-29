@@ -1,6 +1,6 @@
 # React Core Template
 
-A boilerplate for modern React applications built with TypeScript, Webpack 5, and essential tools for development and production.
+A boilerplate for modern React applications built with TypeScript, Webpack 5, and essential tools for development and production. It features an innovative solution for managing complex global state using the React Context API, eliminating the need for Redux while maintaining type safety, modularity, and scalability.
 
 ---
 
@@ -191,6 +191,7 @@ Or, directly using partial update (no immer):
 ```
 updateGlobalState({ setting: { language: 'en' } });
 ```
+
 ---
 
 ## 🧪 Optimization Notes
